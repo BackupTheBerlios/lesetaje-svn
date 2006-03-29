@@ -1,0 +1,30 @@
+Bounce - bouncin' thru' space!
+(Final version, 30.10.2000)
+
+
+
+Copyright (C) 2000 eZ systems as, Norway
+(http://www.ez.no)
+
+Released under the GNU General Public Licence (GPL)
+See the file COPYING for details.
+
+
+Requirements:
+Qt-2.2.1 and tmake
+(Available from www.trolltech.com)
+
+Build instructions:
+tar -zxf bounce.tar.gz
+cd bounce
+tmake -o Makefile bounce.pro
+make
+./bounce
+
+
+This program is part of a QCanvas tutorial on www.zez.org.
+
+Author:
+Gunnstein Lye <gl@ez.no>
+
+
