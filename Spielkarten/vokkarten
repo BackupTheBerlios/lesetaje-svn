@@ -1,0 +1,43 @@
+n=0
+anz=0
+# datei=$(kdialog --getopenfilename ~/pub *.tab)
+datei="/skole/tjener/home0/a06-tatzs/pub/Spielkarten/vokabeln.tab"
+temp="/tmp/quiz9194"
+
+echo "Ergebnis" >$temp 
+
+cat $datei | while read frage
+do
+   
+   
+   if [ "$frage" = "Ende" ] 
+   then
+       kdialog --msgbox "Fertig."
+       # kdialog --title Ergebnis --textbox $temp
+       
+       
+       exit 0
+   else
+        read
+        # evokablen=$(kdialog  --menu "$dvokabeln" a)
+        # >> $temp
+        if [ $? = 1 ]; then exit 0 ; fi
+        read richtig
+	anz=$((1+$anz)) 
+            
+	# echo "Deine Antwort war $($antwort)." >> $temp
+	 export $richtig 
+	 echo echo \$$richtig | bash >/tmp/richtig.tab
+	 antwort=`cat /tmp/richtig.tab`
+	 convert -font Arial -pointsize 20 -fill black -gravity center -annotate 0 '$evokabeln' vokabeln.jpg a$anz.jpg
+         convert -font Arial -pointsize 10 -fill black -gravity center -annotate 0 '$dvokabeln' vokabeln.jpg f$anz.jpg 
+        
+        
+        
+        
+   fi
+done   
+
+
+
+# kdialog --msgbox "Du hast $n von $anz Punkten erreicht."
